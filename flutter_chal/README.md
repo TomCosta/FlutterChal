@@ -1,4 +1,5 @@
 # Flutter App Code Challenge
+![version][version-badge] ![Idioma][idioma] ![status][status-emprogresso] ![license-badge][license-badge]
 
 Project of development of a Flutter App for cinephiles and movie hobbyists...
 
@@ -28,3 +29,11 @@ A few resources to get you started if this is your first Flutter project:
 To know more about Flutter, view the
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+#
+
+[CHANGELOG]: ./CHANGELOG.md
+[version-badge]: https://img.shields.io/badge/version-1.0.0-blue.svg
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[status-emprogresso]: https://img.shields.io/badge/status-Em%20progresso-blueviolet
+[idioma]: https://img.shields.io/badge/idioma-Portugu%C3%AAs-800060
