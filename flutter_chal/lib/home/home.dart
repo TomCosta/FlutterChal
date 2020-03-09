@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chal/models/api_model.dart';
 import 'package:flutter_chal/config/api_config.dart';
@@ -132,11 +131,13 @@ class _MyHomePageState extends State<MyHomePage> {
               return FlatButton(
                 child: movieList(Movies, i),
                 padding: const EdgeInsets.all(0.0),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
+                  onPressed:() {
+                  Navigator.push(context, new MaterialPageRoute(builder: 
+                  (context){
                     return MovieDetails(Movies[i]);
-                  }));
+                  }
+                  ),
+                  );
                 },
               );
             })
@@ -212,4 +213,3 @@ class movieList extends StatelessWidget {
     );
   }
 }
-

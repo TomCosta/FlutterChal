@@ -2,29 +2,30 @@ import 'package:flutter_chal/config/api_config.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
-abstract class MovieDetails extends StatelessWidget {
+class MovieDetails extends StatelessWidget {
 
   final movies;
+  // MovieDetails(this.movies);
   MovieDetails(this.movies);
 
   @override
   Widget build(BuildContext context) {
     var id = movies['id'];
     return Scaffold(
-      body: Stack(
+      body: Stack(        
         fit: StackFit.expand,
-        children: <Widget>[
+        children: <Widget>[          
           Image.network(IMAGE_URL_w500 + movies['backdrop_path'],
           fit: BoxFit.cover),
           BackdropFilter(
-            filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            filter: ui.ImageFilter.blur(sigmaX: 5, sigmaY: 5),
             child: Container(
               color: Colors.black.withOpacity(0.5),
             ),
           ),
           SingleChildScrollView(
             child: Container(
-              margin: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.only(top: 80),
               child: Column(
                 children: <Widget>[
                   Stack(
@@ -50,55 +51,12 @@ abstract class MovieDetails extends StatelessWidget {
                               ]),
                         ),
                       ),
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: <Widget>[
-                        InkWell(
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          child: Icon(
-                            Icons.video_call,
-                            color: Colors.white,
-                          ),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(180),
-                              gradient: LinearGradient(
-                                colors: [Colors.brown, Colors.deepOrange],
-                                begin: const FractionalOffset(0.5, 0.0),
-                                end: const FractionalOffset(0.0, 0.5),
-                                stops: [0.0, 1.0],
-                              )),
-                        ),
-                      ),                      
-                      Container(
-                          width: 90,
-                          height: 20,                         
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              gradient: LinearGradient(
-                                colors: [Colors.brown, Colors.deepOrange],
-                                begin: const FractionalOffset(0.5, 0.0),
-                                end: const FractionalOffset(0.0, 0.5),
-                                stops: [0.0, 1.0],
-                              )),
-                              child: Text(
-                                movies['release_date'],
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Arvo-Bold'
-                                ) ,
-                              ),
-                        ),                                            
-                       ],
-                     )                   
+                      Padding(padding: const EdgeInsets.all(10.0)),
                     ],
                     alignment: AlignmentDirectional.bottomCenter,                    
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 20.0, horizontal: 0.0),
+                    margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -115,60 +73,18 @@ abstract class MovieDetails extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Text(movies['overview'],
+                  Container(
+                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: Column(
+                  children: <Widget>[
+                    Padding(padding: const EdgeInsets.all(2.0)),
+                    Text(movies['overview'],
                       style: TextStyle(
-                          color: Colors.white, fontFamily: 'Bebas-Regular')),
-                  Padding(padding: const EdgeInsets.all(10.0)),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                          child: Container(
-                        width: 150.0,
-                        height: 60.0,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Rate Movie',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Bebas-Regular',
-                              fontSize: 20.0,
-                              fontStyle: FontStyle.italic),
-                        ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.deepPurple),
-                      )),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: InkWell(
-                            child: Container(
-                              padding: const EdgeInsets.all(16.0),
-                              alignment: Alignment.center,
-                              child: Icon(
-                                Icons.share,
-                                color: Colors.white,
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: Colors.deepPurple),
-                            ),
-                          ),
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(16.0),
-                            alignment: Alignment.center,
-                            child: Icon(
-                              Icons.bookmark,
-                              color: Colors.white,
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: Colors.brown),
-                          )),
-                    ],
+                      color: Colors.white, fontFamily: 'Bebas-Regular')
                   )
+                  ],
+                  ),
+                 )
                 ],
               ),
             ),
