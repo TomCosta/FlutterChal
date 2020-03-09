@@ -134,8 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(0.0),
                 onPressed: () {
                   Navigator.push(context,
-                      new MaterialPageRoute(builder: (context) {
-                    return MovieDetails();
+                      MaterialPageRoute(builder: (context) {
+                    return MovieDetails(Movies[i]);
                   }));
                 },
               );
