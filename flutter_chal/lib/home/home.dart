@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               color: Colors.white
               ),
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height -200,
               child: Column(
                 children: <Widget>[
                   Padding(padding: EdgeInsets.only(top: 24, left: 20, right: 20),
@@ -97,20 +97,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     height: 120,
                     child: ListView.builder(
-                      itemCount: 10,
+                      itemCount: Movies.length,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, _api){
+                      itemBuilder: (BuildContext context, i){
                         print(_api);
                         return Container(
-                          child: Padding(padding: EdgeInsets.all(4),
+                          child: Padding(padding: EdgeInsets.all(1),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(30),
-                            child: Image.network('https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg', width: 100, height: 100),
-                          )
+                            child: Image.network(IMAGE_URL_w500 + Movies[i]['poster_path'], width: 80, height: 80),
+                          ),
                           ),
                         );
                       }
-                      ),
+                      )
                     ),
                   ),
               ],
@@ -147,62 +147,6 @@ class _MyHomePageState extends State<MyHomePage> {
     ],
     ), // This trailing comma makes auto-formatting nicer for build methods.
   );
-  }
-}
-
-class TopBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          height: 60,
-          alignment: Alignment.bottomCenter,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.deepPurple,
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 10),
-          child:
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40)
-                ),
-              color: Colors.white
-              ),
-              height: MediaQuery.of(context).size.height - 200,
-              child: Column(
-                children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: 24, left: 20, right: 20),
-                  ),
-                  Padding(padding: EdgeInsets.only(left: 20, right: 20),
-                  child: Container(
-                    height: 120,
-                    child: ListView.builder(
-                      itemCount: 10,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, _api){
-                        print(_api);
-                        return Container(
-                          child: Padding(padding: EdgeInsets.all(4),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.network('https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg', width: 100, height: 100),
-                          )
-                          ),
-                        );
-                      }
-                      ),
-                    ),
-                  ),
-              ],
-              )
-            ),
-        ),
-      ],
-    );
   }
 }
 
