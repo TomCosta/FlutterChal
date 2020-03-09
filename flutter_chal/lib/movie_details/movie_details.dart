@@ -91,6 +91,7 @@ class MovieDetails extends StatelessWidget {
           )
         ],
       ),
+      drawer: Drawer(),
     );
   }
 }
