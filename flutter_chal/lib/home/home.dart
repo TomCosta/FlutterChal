@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_chal/models/api_model.dart';
 import 'package:flutter_chal/config/api_config.dart';

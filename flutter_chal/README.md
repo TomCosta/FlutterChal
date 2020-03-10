@@ -1,7 +1,11 @@
 # Flutter App Code Challenge
 ![version][version-badge] ![Idioma][idioma] ![status][status-emprogresso] ![license-badge][license-badge]
 
-Project of development of a Flutter App for cinephiles and movie hobbyists...
+This is a development challenge of a Flutter App for cinephiles and movie hobbyists...
+
+# 
+This project uses standard Flutter libraries, so there is no need to install specific plugins or libraries to manage lists, images or data.
+# 
 
 ## Getting Started
 
