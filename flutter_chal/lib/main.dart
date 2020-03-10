@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: MyHomePage(
-        title: '​The Movies'),
+        title: '​The Movies App'),
     );
   }
 }

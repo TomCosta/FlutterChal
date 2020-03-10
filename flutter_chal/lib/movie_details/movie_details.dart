@@ -2,6 +2,8 @@ import 'package:flutter_chal/config/api_config.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
+import 'package:flutter_chal/home/home.dart';
+
 class MovieDetails extends StatelessWidget {
 
   final movies;
@@ -12,7 +14,7 @@ class MovieDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var id = movies['id'];
     return Scaffold(
-      body: Stack(        
+      body: Stack(
         fit: StackFit.expand,
         children: <Widget>[          
           Image.network(IMAGE_URL_w500 + movies['backdrop_path'],
@@ -23,9 +25,23 @@ class MovieDetails extends StatelessWidget {
               color: Colors.black.withOpacity(0.5),
             ),
           ),
+          Positioned(
+            child: AppBar(
+              automaticallyImplyLeading: true,
+              title: Text('​The Movies App'),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios, color: Colors.orange),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage())),
+              ), 
+              actions: <Widget>[
+              ],
+            )
+          ),
           SingleChildScrollView(
             child: Container(
-              margin: const EdgeInsets.only(top: 80),
+              margin: const EdgeInsets.only(top: 100),
               child: Column(
                 children: <Widget>[
                   Stack(
@@ -56,7 +72,7 @@ class MovieDetails extends StatelessWidget {
                     alignment: AlignmentDirectional.bottomCenter,                    
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    margin: const EdgeInsets.fromLTRB(20, 10, 30, 10),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -91,7 +107,6 @@ class MovieDetails extends StatelessWidget {
           )
         ],
       ),
-      drawer: Drawer(),
     );
   }
 }
